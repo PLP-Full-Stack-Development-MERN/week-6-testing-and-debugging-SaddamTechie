@@ -9,7 +9,7 @@ function BugList() {
 
   const fetchBugs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/bugs');
+      const response = await axios.get('/api/bugs');
       setBugs(response.data);
       setLoading(false);
     } catch (err) {
@@ -24,7 +24,7 @@ function BugList() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/bugs/${id}`, {
+      const response = await axios.put(`/api/bugs/${id}`, {
         status: newStatus
       });
       setBugs(bugs.map(bug => 

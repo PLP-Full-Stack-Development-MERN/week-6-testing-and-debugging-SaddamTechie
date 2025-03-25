@@ -2,9 +2,9 @@
 
 ## Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://bugtracker-bcni.onrender.com)
 
-### [![Home Screenshot](./screenshots/frontend.png)](https:///)
+### [![Home Screenshot](./screenshots/frontend.png)](https://bugtracker-bcni.onrender.com)
 
 A full-stack bug tracking application built with MongoDB, Express.js, React, and Node.js (MERN stack). This project allows users to report, update, and delete bugs, with a backend API and a responsive frontend interface.
 
