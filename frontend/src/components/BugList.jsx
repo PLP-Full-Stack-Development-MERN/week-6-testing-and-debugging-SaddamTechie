@@ -38,7 +38,7 @@ function BugList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/bugs/${id}`);
+      await axios.delete(`/api/bugs/${id}`);
       setBugs(bugs.filter(bug => bug._id !== id));
       toast('Bug deleted successfully');
     } catch (err) {
@@ -66,7 +66,7 @@ function BugList() {
               <option value="in-progress">In Progress</option>
               <option value="resolved">Resolved</option>
             </select>
-            <button onClick={() => handleDelete(bug._id)}>Delete</button>
+            <button className='delete-button' onClick={() => handleDelete(bug._id)}>Delete</button>
           </div>
         ))
       )}

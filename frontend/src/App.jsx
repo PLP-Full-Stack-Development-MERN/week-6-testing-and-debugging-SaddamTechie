@@ -9,7 +9,14 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="App">
-        <Toaster/>
+        <Toaster
+        toastOptions={{
+          style: {
+            background: 'blue',
+            color: 'white',
+          },
+        }}
+        />
         <h1>Bug Tracker</h1>
         <BugForm />
         <BugList />

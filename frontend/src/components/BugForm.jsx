@@ -5,36 +5,56 @@ function BugForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/bugs', { title, description });
+      await axios.post('/api/bugs', { title, description });
       setTitle('');
       setDescription('');
+      setShowModal(false);
       // Reload the page
-    window.location.reload();
+      window.location.reload();
     } catch (err) {
       setError('Failed to submit bug');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Bug Title"
-        required
-      />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Description"
-      />
-      <button type="submit">Report Bug</button>
-    </form>
+    <>
+    <div className='button-div'>
+      <button className="add-button" onClick={() => setShowModal(true)}>Add Bug</button>
+    </div>
+
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Report Bug</h2>
+              <button className="close-button" onClick={() => setShowModal(false)}>×</button>
+            </div>
+            <div className="modal-body">
+              {error && <div className="error">{error}</div>}
+              <form onSubmit={handleSubmit}>
+                <input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="Bug Title"
+                  required
+                />
+                <textarea
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description"
+                />
+                <button type="submit">Report Bug</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
