@@ -2,10 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "jest --detectOpenHandles --forceExit"
+    "dev": "nodemon backend/server.js",
+    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start":"node backend/server.js",
+    "test:backend":"cd backend && jest --detectOpenHandles --forceExit",
+    "test:frontend":"cd frontend && jest --watchAll=false"
   },
   "keywords": [],
   "author": "",

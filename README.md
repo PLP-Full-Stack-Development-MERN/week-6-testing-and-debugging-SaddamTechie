@@ -1,63 +1,94 @@
-**Week 6: Testing and Debugging in MERN Applications**
+# MERN Bug Tracker
 
-**Objective:**
+## Live Demo
 
-- Develop a systematic approach to testing and debugging MERN applications.
-- Implement unit, integration, and component tests for both backend and frontend.
-- Identify and resolve issues using debugging tools and techniques.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://)
 
-**Project Suggestion:** Build a "Bug Tracker" application where users can create, update, and track issues in a project. The goal is to integrate testing and debugging best practices to ensure application reliability.
+### [![Home Screenshot](./screenshots/frontend.png)](https:///)
 
-**Instructions:**
+A full-stack bug tracking application built with MongoDB, Express.js, React, and Node.js (MERN stack). This project allows users to report, update, and delete bugs, with a backend API and a responsive frontend interface.
 
-1. **Project Setup:**
-   - Create a new project folder called `mern-bug-tracker`.
-   - Set up both backend and frontend environments.
-   - Install necessary dependencies, including testing libraries (Jest, Supertest, React Testing Library).
+## Table of Contents
 
-2. **Application Features:**
-   - Users should be able to:
-     - Report new bugs by filling out a form.
-     - View a list of all reported bugs.
-     - Update bug statuses (e.g., open, in-progress, resolved).
-     - Delete bugs.
+- [Features](#features)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Running Tests](#running-tests)
+- [Screenshots](#screenshots)
 
-3. **Testing Requirements:**
-   - **Backend:**
-     - Write unit tests for individual helper functions (e.g., validation logic).
-     - Perform integration tests for API routes (e.g., create, update, delete bug endpoints).
-     - Mock database calls using libraries like `jest-mock`.
-   
-   - **Frontend:**
-     - Write unit tests for components (e.g., form validation, button clicks).
-     - Implement integration tests to verify API calls and UI updates.
-     - Ensure proper rendering of UI elements under different states (e.g., empty list, error message).
+## Features
 
-4. **Debugging Tasks:**
-   - Introduce intentional bugs in the code and utilize:
-     - Console logs for tracking values.
-     - Chrome DevTools for inspecting network requests and component state.
-     - Node.js inspector for debugging server-side code.
-     - Error boundary implementation for React components.
+- **Backend**: RESTful API with CRUD operations for bugs (create, read, update, delete).
+- **Frontend**: Modal-based bug reporting form, bug list with status updates, and delete functionality.
+- **Notifications**: Toast notifications for status updates and deletions (using `sonner`).
+- **Testing**: Unit and integration tests for both backend and frontend.
 
-5. **Error Handling Implementation:**
-   - Implement error handling in the backend using Express middleware.
-   - Add client-side error boundaries to capture and gracefully handle crashes.
+## Installation
 
-6. **Documentation:**
-   - Write a `README.md` file that includes:
-     - How to install and run the project.
-     - Steps to run tests and debugging techniques used.
-     - Explanation of the testing approach and coverage.
+### Prerequisites
 
-7. **Submission:**
-   - Push your code to your GitHub repository.
+- Node.js (v16 or higher)
+- MongoDB (local or cloud instance, e.g., MongoDB Atlas)
+- npm (comes with Node.js)
 
-**Evaluation Criteria:**
+### Project Setup
 
-- Comprehensive unit and integration tests.
-- Proper test coverage and documentation.
-- Effective use of debugging techniques.
-- Well-structured and maintainable code.
-- Clear and concise error handling implementation.
+1. Clone the repository
 
+   ```bash
+   git clone https://github.com/PLP-Full-Stack-Development-MERN/week-6-testing-and-debugging-SaddamTechie.git week6
+   cd week6
+   ```
+
+2. Install dependencies:
+
+   ```bash
+      npm run build
+   ```
+
+3. Create a '.env' file in the 'week6' folder with the following:
+
+   ```env
+      PORT=5000
+      MONGO_URI=<MONGO_URI>
+   ```
+
+   Replace MONGO_URI with your MongoDB connection string if using a cloud instance.
+
+### Running the Project
+
+```bash
+   npm start
+```
+
+The server will run on http://localhost:5000.
+
+Open your browser and go to http://localhost:5000
+
+### Running Tests
+
+**Backend tests:**
+
+```bash
+   npm test:backend
+```
+
+      This uses Jest with mongodb-memory-server for an in-memory database.
+      Tests are located in backend/tests/bug.test.js.
+
+**Frontend Tests**
+
+```bash
+   npm test:frontend
+```
+
+      This uses Jest with @testing-library/react for React component testing.
+      Tests are located in src/**tests**/BugForm.test.js and src/**tests**/BugList.test.js.
+
+### Screenshots
+
+**Frontend Tests**
+![Home Screenshot](./screenshots/frontend_test.png)
+
+**Backend Tests**
+![Home Screenshot](./screenshots/backend-test.png)
